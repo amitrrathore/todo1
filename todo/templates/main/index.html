@@ -1,0 +1,31 @@
+{% extends 'partials/base.html' %}
+
+{% block content %}
+<div class="border p-3 ">
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form}}
+
+        <!-- <label for="content">Content : </label>
+        <input type="text" style="width: 430px;"> -->
+
+        <button type="submit" class="btn btn-success btn-block">Submit</button>
+    </form>
+        {% for i in list %}
+        <div class=" border p-3 mt-3">
+            <small>12 dec 23</small>
+            <div class="row ">
+                <div class="col-md-8">
+                    <p class="mt-2" style="word-wrap: break-word;">
+                       {{i.content}}</p>
+                </div>
+                <div class="col-md-4 mt-2">
+                    <a href="{% url 'edit' i.id %}" type="submit" class="btn btn-primary btn-sm">Edit</a> |
+                    <a href="{% url 'delete' i.id %}" class="btn btn-danger btn-sm">Delete</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    
+</div>
+{% endblock %}
