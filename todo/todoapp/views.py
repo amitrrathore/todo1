@@ -4,7 +4,7 @@ from .forms import todoform,editform
 
 # Create your views here.
 def  index(request):
-    tod=todo.objects.all()
+    todos=todo.objects.all()
     
     if request.method=='POST':
         form=todoform(request.POST)   
